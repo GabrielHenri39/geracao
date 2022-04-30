@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load static %} 
+{% load filtros %}
+{% block 'head' %}
+
+
+  <link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}"/>
+
+{% endblock %} 
+
+
+{% block 'body' %}
+<br>
+<div class='container'>
+    <form style="border:2px solid black;">
+        <br>
+        <div class ="container">
+            <div class="row"  >
+                <div class="col-sm-auto">
+                    {% if paciente.foto%}
+                        <img width="80px" src="{{paciente.foto.url}}">
+                        
+                        {%else%}
+                            <img width="80px" src="{% static 'plataforma/img/user.png' %}">
+                    {% endif%}
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Nome </h6><p class="dado">: {{paciente.nome_do_paciente|title}} </p>
+                </div>
+                <div class="col-">
+                    <h6 class="dado">Data de Nascimento </h6><p class="dado">: {{paciente.data_nascimento}} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Idade </h6><p class="dado">: {{paciente.data_nascimento|idade}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Naturalidade </h6><p class="dado">: {{paciente.naturalidade}} </p>
+                </div>
+                <div class="col-md-auto">
+                </div>
+                
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado"> Estado </h6><p class="dado">: {{paciente.estado|mostar_estados}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">UF</h6><p class="dado">: {{paciente.uf|mostar_uf}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado"> Cidade </h6><p class="dado">: {{paciente.cidade}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Bairro</h6><p class="dado">: {{paciente.bairro}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Endereço </h6><p class="dado">: {{paciente.endereco}} </p>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado"> CPF </h6><p class="dado">: {{paciente.cpf}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">RG</h6><p class="dado">: {{paciente.rg}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">CNS </h6><p class="dado">: {{paciente.cns}} </p>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock  %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'autenticacao/css/cadastro.css' %}">
+
+{% endblock %}
+{% block 'titulo' %}Logar{% endblock %}
+{% block 'body' %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <div class="logo_sidebar">
+                    <h2 class="logo">
+                        <img class="img_logo_sidebar" src="{% static 'autenticacao/img/logo.png' %}">
+                    </h2>
+                </div>
+                <div class="corpo_sidebar">
+                    <div>
+                        <h2 class="titulo cor_branca">Geração Integrar </h2>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="area_cadastrar">
+                    <h2 class="titulo_area_cadastrar">Connecte-se</h2>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {{message.tags}}">
+                                {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <br>
+                    <br>
+                    <form method="POST" action="{% url 'logar' %}">
+                        {% csrf_token %}
+                        <input name="username" class="input_cadastrar input_cadastrar_nome" type="text" placeholder="Username...">
+                        <br>
+                        <br>
+                        <input name="senha" class="input_cadastrar input_cadastrar_senha" type="password" id='password' placeholder="Senha..." >
+                        <i class="bi bi-eye-fill" id="togglePassword"></i>
+                        <br>
+                         <a href="{% url 'password_reset' %}">Esqueci minha senha</a> 
+                         
+                        
+                        
+                        <br>
+                        <input class="btn_cadastrar" type="submit" value="Logar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'autenticacao/js/password.js' %}"></script>
+    
+
+{% endblock %}
+                

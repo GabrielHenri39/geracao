@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'head' %}
+<link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}" >
+
+
+
+{% load crispy_forms_tags %}
+
+
+{% endblock %} 
+
+
+{% block 'body' %}
+  <div class = 'container'>
+    <br>
+    
+      {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {{message.tags}} ">
+                      {{message}}
+                  </div>
+              {% endfor %}
+              <br>
+      {% endif %}
+    <br>
+    <form action="." , method="POST" enctype="multipart/form-data">{% csrf_token %}
+      <table>
+        {{form.as_table}}
+      </table>
+      <button type="submit" class="btn btn-success">cadastra</button>
+    </form>
+  </div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+{% endblock %}
