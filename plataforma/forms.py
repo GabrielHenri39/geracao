@@ -5,8 +5,6 @@ from django.db.models import fields
 from .models import Paciente, Cidade, Bairro, Escolas 
 from django.db import models    
 from datetime import date
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Submit, Row, Column
 
 
 class TelInput(forms.DateInput):
