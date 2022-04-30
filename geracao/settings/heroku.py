@@ -1,6 +1,7 @@
 import environ
 
 from geracao.settings.base import *
+DEFAULT_FROM_EMAIL
 
 env = environ.Env()
 
