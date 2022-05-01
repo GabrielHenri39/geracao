@@ -1,10 +1,11 @@
 from pathlib import Path
 from django.contrib.messages import constants
-
+import django_on_heroku
 
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -155,3 +156,5 @@ EMAIL_USE_TLS = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL  = 'geracaoin8@gmail.com'
+
+django_on_heroku.settings(locals())
