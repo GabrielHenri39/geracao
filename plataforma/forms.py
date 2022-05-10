@@ -2,7 +2,7 @@
 
 from django import forms
 from django.db.models import fields
-from .models import Paciente, Cidade, Bairro, Escolas 
+from .models import Paciente, Cidade, Bairro
 from django.db import models    
 from datetime import date
 
@@ -22,6 +22,7 @@ class CadastroP(forms.ModelForm):
         fields = "__all__"
         widgets = {
             'data_nascimento': DateInput(),
+            
             'telefone': TelInput(),
             'cpf': forms.TextInput(attrs={'data-mask':"000.000.000-00"}),
             'rg': forms.TextInput(attrs={'data-mask':"00.000.000-0"}),
@@ -51,11 +52,4 @@ class CadastroP(forms.ModelForm):
         #     # 'check_me_out',
         #     Submit('submit', 'Sign in')
         # )
-    def __getitem__(self, name: str):
-        return super().__getitem__(name)
-
-class EscolaForm(forms.ModelForm):
     
-     class Meta:
-        model= Escolas
-        fields ='__all__'

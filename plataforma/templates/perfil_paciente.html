@@ -75,8 +75,7 @@
                 
             </div>
             <div class="row">
-                <div class="col-sm-1">
-                </div>
+                
                 <div class="col-sm-auto">
                     <h6 class="dado"> CPF </h6><p class="dado">: {{paciente.cpf}} </p>
                 </div>
@@ -88,6 +87,66 @@
                 </div>
                 
             </div>
+            <div class="row">
+                
+                <div class="col-sm-auto">
+                    <h6 class="dado"> UBS </h6><p class="dado">: {{paciente.ubs}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">CIPAC</h6><p class="dado">: {{paciente.cipac}} </p>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row">
+                
+                <div class="col-sm-auto">
+                    <h6 class="dado">Nome da Mãe</h6>
+                    {% if paciente.nome_da_mae %}
+                        <p class="dado">: {{paciente.nome_da_mae}} </p>
+
+                        {%else%}
+                            <p class="dado">: Desconhecido </p>
+                    {%endif%}
+
+                    
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Nome do Pai</h6> 
+                    {% if paciente.nome_do_pai %}
+                        <p class="dado">: {{paciente.nome_do_pai}} </p>
+
+                        {%else%}
+                            <p class="dado">: Desconhecido </p>
+                    {%endif%}
+
+                    
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Nome do Responsável</h6><p class="dado">: {{paciente.nome_do_responsavel}} </p>
+                </div>
+                
+            </div>
+            {% comment %} <div class="row">
+                
+                <div class="col-sm-auto">
+                    <h6 class="dado">Nome da Mãe</h6>
+                    
+
+                    
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Nome do Pai</h6> 
+                    
+
+                    
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Nome do Responsável</h6><p class="dado">: {{paciente.nome_do_responsavel}} </p>
+                </div>
+                
+            </div> {% endcomment %}
         </div>
     </form>
 </div>

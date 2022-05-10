@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime, date
 
 choices_uf = (
                 ('01','AC'),
@@ -86,8 +86,7 @@ class Bairro(models.Model):
     def __str__(self):
         return self.bairro 
 
-class Escolas(models.Model):
-    instituicao_de_ensino = models.CharField(max_length=225,verbose_name='Instituição de Ensino')
+
 
 
 # class NivelDeEscolaridade()
@@ -114,7 +113,11 @@ class Paciente(models.Model):
     telefone = models.CharField(max_length=20, blank=True, null=True, verbose_name='Nº Telefone')
     celular_whatsapp = models.BooleanField(default=False ,verbose_name='Celular WhatsApp')
     telefone_para_recado = models.CharField(max_length=20, blank=True, null=True,verbose_name='Telefone para Recado')
-    instituicao_de_ensino = models.ForeignKey(Escolas,on_delete=models.DO_NOTHING, null=True, blank=True)
+    instituicao_de_ensino = models.CharField(max_length=225,verbose_name='Instituição de Ensino' ,null=True,blank=True)
+    diagnotico = models.TextField(null=True,blank=True,verbose_name='Diagnóstico')
+    nivel_de_escolaridade = models.CharField(max_length=255,verbose_name='Nível de Escolaridade')
+    inicio_do_tratamento=models.DateField(default=date.today)
+
 
     
 
