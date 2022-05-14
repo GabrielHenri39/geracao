@@ -1,6 +1,9 @@
+from email.policy import default
 from pathlib import Path
 from django.contrib.messages import constants
+from decouple import config
 import django_on_heroku
+
 
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -15,7 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u5)873qc3bk=omceljf0-m3+jj6(w2af1oz2jy4%f4nd0^91n('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =True
+DEBUG = config('DEBUG',cast=bool,default=True)
+
 ALLOWED_HOSTS = []
 
 
@@ -146,15 +150,16 @@ AUTH_USER_MODEL = 'autenticacao.User'
 
 
 
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_HOST = config('EMAIL_HOST', cast=str, default='smtp.gmail.com')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD',default='.ENV')
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='.ENV')
+    EMAIL_PORT = config('EMAIL_PORT',cast=int,default=587)
+    EMAIL_USE_TLS = config('EMAIL_USE_TLS',cast=bool,default=True)
 
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'geracaoin8Dev'
-EMAIL_HOST_USER = 'geracaoin8@gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL  = 'geracaoin8@gmail.com'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='.ENV')
 
 django_on_heroku.settings(locals())
