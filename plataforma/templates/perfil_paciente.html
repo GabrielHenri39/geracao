@@ -28,7 +28,16 @@
                 <div class="col-sm-auto">
                     <h6 class="dado">Nome </h6><p class="dado">: {{paciente.nome_do_paciente|title}} </p>
                 </div>
-                <div class="col-">
+                <div class="col-sm-auto">
+                    <h6 class="dado"> Gêrero</h6>
+                        {% if paciente.gerero == 'm' %} 
+                            <p class="dado">: Masculino</p>
+                            {%else%}
+                                <p class="dado">: Feminino</p>
+                        {%endif%}
+                </div>
+
+                <div class="col-sm-auto">
                     <h6 class="dado">Data de Nascimento </h6><p class="dado">: {{paciente.data_nascimento}} </p>
                 </div>
             </div>
@@ -77,19 +86,29 @@
             <div class="row">
                 
                 <div class="col-sm-auto">
-                    <h6 class="dado"> CPF </h6><p class="dado">: {{paciente.cpf}} </p>
+                    <h6 class="dado"> CPF </h6>
+                        {% if paciente.cpf %} 
+                            <p class="dado">: {{paciente.cpf}}</p>
+                            {%else%}
+                                <p class="dado">: Não possui</p>
+                        {%endif%}
+
                 </div>
                 <div class="col-sm-auto">
-                    <h6 class="dado">RG</h6><p class="dado">: {{paciente.rg}} </p>
-                </div>
-                <div class="col-sm-auto">
+                  <h6 class="dado"> RG</h6>
+                        {% if paciente.cpf %} 
+                            <p class="dado">: {{paciente.rg}}</p>
+                            {%else%}
+                                <p class="dado">: Não possui</p>
+                        {%endif%}
+                <div class="col-auto">
                     <h6 class="dado">CNS </h6><p class="dado">: {{paciente.cns}} </p>
                 </div>
                 
             </div>
             <div class="row">
                 
-                <div class="col-sm-auto">
+                <div class="col-auto">
                     <h6 class="dado"> UBS </h6><p class="dado">: {{paciente.ubs}} </p>
                 </div>
                 <div class="col-sm-auto">
@@ -112,7 +131,7 @@
 
                     
                 </div>
-                <div class="col-sm-auto">
+                <div class="col-auto">
                     <h6 class="dado">Nome do Pai</h6> 
                     {% if paciente.nome_do_pai %}
                         <p class="dado">: {{paciente.nome_do_pai}} </p>
@@ -123,30 +142,30 @@
 
                     
                 </div>
-                <div class="col-sm-auto">
+                <div class="col-auto">
                     <h6 class="dado">Nome do Responsável</h6><p class="dado">: {{paciente.nome_do_responsavel}} </p>
                 </div>
                 
             </div>
-            {% comment %} <div class="row">
+            <div class="row">
                 
-                <div class="col-sm-auto">
-                    <h6 class="dado">Nome da Mãe</h6>
+                <div class="col-auto">
+                    <h6 class="dado">Telefone:</h6>
                     
 
                     
                 </div>
-                <div class="col-sm-auto">
+                {% comment %} <div class="col-sm-auto">
                     <h6 class="dado">Nome do Pai</h6> 
                     
 
                     
                 </div>
                 <div class="col-sm-auto">
-                    <h6 class="dado">Nome do Responsável</h6><p class="dado">: {{paciente.nome_do_responsavel}} </p>
+                    <h6 class="dado">Nome do Responsável</h6><p class="dado">: </p>
                 </div>
-                
-            </div> {% endcomment %}
+                 {% endcomment %}
+            </div>
         </div>
     </form>
 </div>

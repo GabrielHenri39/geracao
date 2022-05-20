@@ -21,16 +21,14 @@ def home(request):
 def cadastro_p(request):
    if request.method == "GET":
       form = CadastroP()
-      print(type(form))
-      fv = form.__getitem__('nome_do_paciente')
-      print(type(fv),fv)
+    
       
       
       context = {
             'form':form
          }
       
-      print(form['nome_do_paciente'])
+      
       return render(request,'cadastrop.html', context=context)
    else:
       form = CadastroP(request.POST, request.FILES)
@@ -48,3 +46,7 @@ def cadastro_p(request):
 def paciente(request, id):
    paciente = get_object_or_404(Paciente, id=id)
    return render(request, 'perfil_paciente.html', {'paciente': paciente, 'id': id})
+
+
+def robot(request):
+   return render(request,'robots.txt')
