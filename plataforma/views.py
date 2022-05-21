@@ -19,23 +19,27 @@ def home(request):
 
 
 def cadastro_p(request):
+   pacientes= Paciente.objects.filter('cpf')
    if request.method == "GET":
       form = CadastroP()
-    
+      print(type(form))
+      fv = form.__getitem__('cpf')
+      print(type(fv),fv)
       
       
       context = {
             'form':form
          }
       
-      
+      print(form['nome_do_paciente'])
       return render(request,'cadastrop.html', context=context)
    else:
       form = CadastroP(request.POST, request.FILES)
       if form.is_valid():
-         form.save()
-         messages.add_message(request, constants.SUCCESS, 'Cadastro do paciente realizado com sucesso')
-         return redirect('/')
+         if not pacientes.exists():
+            form.save()
+            messages.add_message(request, constants.SUCCESS, 'Cadastro do paciente realizado com sucesso')
+            return redirect('/')
       else:
           form = CadastroP()
           context = {'form':form}
