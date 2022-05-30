@@ -13,7 +13,7 @@
 {% block 'body' %}
 <br>
 <div class='container'>
-    <form style="border:2px solid black;">
+    <form >
         <br>
         <div class ="container">
             <div class="row"  >
@@ -26,7 +26,7 @@
                     {% endif%}
                 </div>
                 <div class="col-sm-auto">
-                    <h6 class="dado">Nome </h6><p class="dado">: {{paciente.nome_do_paciente|title}} </p>
+                    <h6>Nome:</h6><p class="dado">{{paciente.nome_do_paciente|title}} </p>
                 </div>
                 <div class="col-sm-auto">
                     <h6 class="dado"> Gêrero</h6>
@@ -143,7 +143,7 @@
                     
                 </div>
                 <div class="col-auto">
-                    <h6 class="dado">Nome do Responsável</h6><p class="dado">: {{paciente.nome_do_responsavel}} </p>
+                    <h6 class="dado">Nome do Responsável:</h6><p class="dado"> {{paciente.nome_do_responsavel}} </p>
                 </div>
                 
             </div>
