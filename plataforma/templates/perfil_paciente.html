@@ -17,7 +17,7 @@
                 <table>
                     <tr>
                         <th> {% if paciente.foto%}
-                        <img width="80px" src="{{paciente.foto.url}}">
+                             <img width="80px" src="{{paciente.foto.url}}">
                         
                         {%else%}
                             <img width="80px" src="{% static 'plataforma/img/user.png' %}">
@@ -60,13 +60,12 @@
                         <th>CIPAC</th><th class='font'> {{paciente.cipac}}</th>
                         <th> UBS:</th><th class='font'> {{paciente.ubs}}</th>
                     </tr>
-                    <div style="max-width: 10px;">
-                        <tr>
-        
-                            <th>Diagnóstico:</th>
-                            <samp>{{paciente.diagnotico}}</samp>
-                        </tr>
-                    </div>
+                
+                    <tr>
+    
+                        
+                    </tr>
+                    
                 </table>
             </div>
         </form>
