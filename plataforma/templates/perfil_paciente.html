@@ -9,164 +9,66 @@
 
 {% endblock %} 
 
-
 {% block 'body' %}
-<br>
-<div class='container'>
-    <form >
-        <br>
-        <div class ="container">
-            <div class="row"  >
-                <div class="col-sm-auto">
-                    {% if paciente.foto%}
+    <br>
+    <div class='container'>
+        <form class="form">
+            <div class='container'>
+                <table>
+                    <tr>
+                        <th> {% if paciente.foto%}
                         <img width="80px" src="{{paciente.foto.url}}">
                         
                         {%else%}
                             <img width="80px" src="{% static 'plataforma/img/user.png' %}">
-                    {% endif%}
-                </div>
-                <div class="col-sm-auto">
-                    <h6>Nome:</h6><p class="dado">{{paciente.nome_do_paciente|title}} </p>
-                </div>
-                <div class="col-sm-auto">
-                    <h6 class="dado"> Gêrero</h6>
-                        {% if paciente.gerero == 'm' %} 
-                            <p class="dado">: Masculino</p>
-                            {%else%}
-                                <p class="dado">: Feminino</p>
-                        {%endif%}
-                </div>
-
-                <div class="col-sm-auto">
-                    <h6 class="dado">Data de Nascimento </h6><p class="dado">: {{paciente.data_nascimento}} </p>
-                </div>
+                        {% endif%}</th>
+                    </tr>
+                    <tr>    
+                        <th id="foto" width='2px'> Foto</th>
+                    </tr>
+                    <br>
+                    <tr>
+                        <th>Nome:</th><th class="font">{{paciente.nome_do_paciente|title}}</th>
+                        <th>Gêrador:</th><th class="font">{% if paciente.gerero == 'm' %} 
+                                    Masculino
+                                    {%else%}
+                                    Feminino
+                                {%endif%}</th>
+                    </tr>
+                    <tr>
+                        <th>Data de nascimento:</th><th class="font"> {{paciente.data_nascimento}}</th>
+                        <th>Idade:</th><th class="font">{{paciente.data_nascimento|idade}}</th> 
+                    </tr>
+                    <tr>
+                        <th>Naturalidade:</th><th class="font">{{paciente.naturalidade}}</th>
+                        <th>Estado:</th><th class="font">{{paciente.estado|mostar_estados}}</th>
+                        <th>UF:</th><th class='font'>{{paciente.uf|mostar_uf}}</th>
+                    </tr>
+                    <tr>
+                        <th>Cidade:</th><th class="font">Londrina</th>
+                        <th>Bairro:</th><th class='font'>{{paciente.bairro}}</th>
+                    </tr>
+                    <tr>
+                        <th>Endereço:</th><th class="font">{{paciente.endereco}}</th>
+                    </tr>
+                    <tr>
+                        <th> CPF:</th><th class="font">{{paciente.cpf}}</th>
+                        <th>RG:</th><th class='font'> {{paciente.rg}}</th>
+                    </tr>
+                    <tr>
+                        <th> CNS:</th><th class="font">{{paciente.cns}}</th>
+                        <th>CIPAC</th><th class='font'> {{paciente.cipac}}</th>
+                        <th> UBS:</th><th class='font'> {{paciente.ubs}}</th>
+                    </tr>
+                    <div style="max-width: 10px;">
+                        <tr>
+        
+                            <th>Diagnóstico:</th>
+                            <samp>{{paciente.diagnotico}}</samp>
+                        </tr>
+                    </div>
+                </table>
             </div>
-            <div class="row">
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-auto">
-                    <h6 class="dado">Idade </h6><p class="dado">: {{paciente.data_nascimento|idade}} </p>
-                </div>
-                <div class="col-sm-auto">
-                    <h6 class="dado">Naturalidade </h6><p class="dado">: {{paciente.naturalidade}} </p>
-                </div>
-                <div class="col-md-auto">
-                </div>
-                
-            </div>
-            
-            <div class="row">
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-auto">
-                    <h6 class="dado"> Estado </h6><p class="dado">: {{paciente.estado|mostar_estados}} </p>
-                </div>
-                <div class="col-sm-auto">
-                    <h6 class="dado">UF</h6><p class="dado">: {{paciente.uf|mostar_uf}} </p>
-                </div>
-                <div class="col-sm-auto">
-                    
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-auto">
-                    <h6 class="dado"> Cidade </h6><p class="dado">: {{paciente.cidade}} </p>
-                </div>
-                <div class="col-sm-auto">
-                    <h6 class="dado">Bairro</h6><p class="dado">: {{paciente.bairro}} </p>
-                </div>
-                <div class="col-sm-auto">
-                    <h6 class="dado">Endereço </h6><p class="dado">: {{paciente.endereco}} </p>
-                </div>
-                
-            </div>
-            <div class="row">
-                
-                <div class="col-sm-auto">
-                    <h6 class="dado"> CPF </h6>
-                        {% if paciente.cpf %} 
-                            <p class="dado">: {{paciente.cpf}}</p>
-                            {%else%}
-                                <p class="dado">: Não possui</p>
-                        {%endif%}
-
-                </div>
-                <div class="col-sm-auto">
-                  <h6 class="dado"> RG</h6>
-                        {% if paciente.cpf %} 
-                            <p class="dado">: {{paciente.rg}}</p>
-                            {%else%}
-                                <p class="dado">: Não possui</p>
-                        {%endif%}
-                <div class="col-auto">
-                    <h6 class="dado">CNS </h6><p class="dado">: {{paciente.cns}} </p>
-                </div>
-                
-            </div>
-            <div class="row">
-                
-                <div class="col-auto">
-                    <h6 class="dado"> UBS </h6><p class="dado">: {{paciente.ubs}} </p>
-                </div>
-                <div class="col-sm-auto">
-                    <h6 class="dado">CIPAC</h6><p class="dado">: {{paciente.cipac}} </p>
-                </div>
-                
-                
-                
-            </div>
-            <div class="row">
-                
-                <div class="col-sm-auto">
-                    <h6 class="dado">Nome da Mãe</h6>
-                    {% if paciente.nome_da_mae %}
-                        <p class="dado">: {{paciente.nome_da_mae}} </p>
-
-                        {%else%}
-                            <p class="dado">: Desconhecido </p>
-                    {%endif%}
-
-                    
-                </div>
-                <div class="col-auto">
-                    <h6 class="dado">Nome do Pai</h6> 
-                    {% if paciente.nome_do_pai %}
-                        <p class="dado">: {{paciente.nome_do_pai}} </p>
-
-                        {%else%}
-                            <p class="dado">: Desconhecido </p>
-                    {%endif%}
-
-                    
-                </div>
-                <div class="col-auto">
-                    <h6 class="dado">Nome do Responsável:</h6><p class="dado"> {{paciente.nome_do_responsavel}} </p>
-                </div>
-                
-            </div>
-            <div class="row">
-                
-                <div class="col-auto">
-                    <h6 class="dado">Telefone:</h6>
-                    
-
-                    
-                </div>
-                {% comment %} <div class="col-sm-auto">
-                    <h6 class="dado">Nome do Pai</h6> 
-                    
-
-                    
-                </div>
-                <div class="col-sm-auto">
-                    <h6 class="dado">Nome do Responsável</h6><p class="dado">: </p>
-                </div>
-                 {% endcomment %}
-            </div>
-        </div>
-    </form>
-</div>
-{% endblock  %}
+        </form>
+    </div>
+{% endblock 'body' %}

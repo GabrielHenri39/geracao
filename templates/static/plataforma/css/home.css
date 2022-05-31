@@ -33,7 +33,29 @@
 	
 }
 
-.dado{
-	display: inline-block;
-	color: black
-}
+
+
+ table tr th {
+	 max-width: 10%;
+	 font-family: Arial, Helvetica, sans-serif;
+	 
+	 padding: 0.2em;
+	 text-align: left;
+ }
+
+ .form{
+	border: 2px solid black;
+	
+	max-height: min-content;
+ }
+
+ .font{
+	 font-family: Arial, Helvetica, sans-serif;
+	 font-weight: normal;
+	 max-height: min-content;
+ }
+
+ #foto{
+	display: flex;
+	align-items: center;
+ }

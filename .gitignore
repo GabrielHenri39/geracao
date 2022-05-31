@@ -137,6 +137,8 @@ venv.bak/
 imgcode/
 test.txt
 grit/
+media/
+id.html
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -169,3 +171,4 @@ cython_debug/
 #.idea/
 
 test1.txt
+plataforma/templates/id.html

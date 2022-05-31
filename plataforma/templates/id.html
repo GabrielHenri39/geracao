@@ -1,0 +1,172 @@
+{% extends 'index.html' %}
+
+{% load static %} 
+{% load filtros %}
+{% block 'head' %}
+
+
+  <link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}"/>
+
+{% endblock %} 
+
+
+{% block 'body' %}
+<br>
+<div class='container'>
+    <form >
+        <br>
+        <div class ="container">
+            <div class="row"  >
+                <div class="col-sm-auto">
+                    {% if paciente.foto%}
+                        <img width="80px" src="{{paciente.foto.url}}">
+                        
+                        {%else%}
+                            <img width="80px" src="{% static 'plataforma/img/user.png' %}">
+                    {% endif%}
+                </div>
+                <div class="col-sm-auto">
+                    <h6>Nome:</h6><p class="dado">{{paciente.nome_do_paciente|title}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado"> Gêrero</h6>
+                        {% if paciente.gerero == 'm' %} 
+                             Masculino
+                            {%else%}
+                               Feminino
+                        {%endif%}
+                </div>
+
+                <div class="col-sm-auto">
+                    <h6 class="dado">Data de Nascimento </h6><p class="dado">: {{paciente.data_nascimento}} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Idade </h6><p class="dado">: {{paciente.data_nascimento|idade}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Naturalidade </h6><p class="dado">: {{paciente.naturalidade}} </p>
+                </div>
+                <div class="col-md-auto">
+                </div>
+                
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado"> Estado </h6><p class="dado">: {{paciente.estado|mostar_estados}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">UF</h6><p class="dado">: {{paciente.uf|mostar_uf}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado"> Cidade </h6><p class="dado">: {{paciente.cidade}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Bairro</h6><p class="dado">: {{paciente.bairro}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Endereço </h6><p class="dado">: {{paciente.endereco}} </p>
+                </div>
+                
+            </div>
+            <div class="row">
+                
+                <div class="col-sm-auto">
+                    <h6 class="dado"> CPF </h6>
+                        {% if paciente.cpf %} 
+                            <p class="dado">: {{paciente.cpf}}</p>
+                            {%else%}
+                                <p class="dado">: Não possui</p>
+                        {%endif%}
+
+                </div>
+                <div class="col-sm-auto">
+                  <h6 class="dado"> RG</h6>
+                        {% if paciente.cpf %} 
+                            <p class="dado">: {{paciente.rg}}</p>
+                            {%else%}
+                                <p class="dado">: Não possui</p>
+                        {%endif%}
+                <div class="col-auto">
+                    <h6 class="dado">CNS </h6><p class="dado">: {{paciente.cns}} </p>
+                </div>
+                
+            </div>
+            <div class="row">
+                
+                <div class="col-auto">
+                    <h6 class="dado"> UBS </h6><p class="dado">: {{paciente.ubs}} </p>
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">CIPAC</h6><p class="dado">: {{paciente.cipac}} </p>
+                </div>
+                
+                
+                
+            </div>
+            <div class="row">
+                
+                <div class="col-sm-auto">
+                    <h6 class="dado">Nome da Mãe</h6>
+                    {% if paciente.nome_da_mae %}
+                        <p class="dado">: {{paciente.nome_da_mae}} </p>
+
+                        {%else%}
+                            <p class="dado">: Desconhecido </p>
+                    {%endif%}
+
+                    
+                </div>
+                <div class="col-auto">
+                    <h6 class="dado">Nome do Pai</h6> 
+                    {% if paciente.nome_do_pai %}
+                        <p class="dado">: {{paciente.nome_do_pai}} </p>
+
+                        {%else%}
+                            <p class="dado">: Desconhecido </p>
+                    {%endif%}
+
+                    
+                </div>
+                <div class="col-auto">
+                    <h6 class="dado">Nome do Responsável:</h6><p class="dado"> {{paciente.nome_do_responsavel}} </p>
+                </div>
+                
+            </div>
+            <div class="row">
+                
+                <div class="col-auto">
+                    <h6 class="dado">Telefone:</h6>
+                    
+
+                    
+                </div>
+                {% comment %} <div class="col-sm-auto">
+                    <h6 class="dado">Nome do Pai</h6> 
+                    
+
+                    
+                </div>
+                <div class="col-sm-auto">
+                    <h6 class="dado">Nome do Responsável</h6><p class="dado">: </p>
+                </div>
+                 {% endcomment %}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock  %}
