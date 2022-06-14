@@ -173,4 +173,5 @@ cython_debug/
 test1.txt
 plataforma/templates/id.html
 staticfiles/
+media/img/oi.txt
 media/
