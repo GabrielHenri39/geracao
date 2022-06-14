@@ -7,4 +7,4 @@ if ip:
     else:
         os.system(f'python manage.py runserver {ip}:8000')
 else:
-    os.system('python manage.py runserver 8080')
+    os.system('python manage.py runserver ')

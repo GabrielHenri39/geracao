@@ -172,6 +172,5 @@ cython_debug/
 
 test1.txt
 plataforma/templates/id.html
-static
-files
+staticfiles/
 media/

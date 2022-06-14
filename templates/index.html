@@ -17,11 +17,11 @@
                 <a class="navbar-brand" href="{% url 'home' %}">
                             <img width="50" src="{% static 'autenticacao/img/logo.png' %}">
                                     &nbsp<h3 class="font_logo">Geração</h3></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                {% comment %} <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarNav" aria-controls="navbarNav"
                         aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-                </button><div class="dropdown show">
+                 </button><div class="dropdown show">
           <a class="navbar-brand" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Menu
           </a>
@@ -30,8 +30,8 @@
             <button type="button" class="btn btn-primary dropdown-item" data-toggle="modal" data-target="#exampleModal">Opções</button>
           
         
-          </div>
-        </div>
+          </div> {% endcomment %}
+        </div> 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">

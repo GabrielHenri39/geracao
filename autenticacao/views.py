@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
-from django.http import HttpRequest
 from django.contrib.auth.models import User
 from django.contrib import messages, auth
 from django.contrib.messages import constants
-from django.core.mail import send_mail
-from django.conf import settings
-
+from django.contrib.auth.decorators import login_required
+@login_required(login_url='/auth/logar')
 def cadastro(request):
     if request.user.is_authenticated:
         if request.method == 'GET':
